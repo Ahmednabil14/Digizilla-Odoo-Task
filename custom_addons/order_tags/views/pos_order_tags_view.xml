@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_pos_order_tags_tree" model="ir.ui.view">
+        <field name="name">pos.order.tags.tree</field>
+        <field name="model">pos.order.tags</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="tag"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_pos_order_tags_form" model="ir.ui.view">
+        <field name="name">pos.order.tags.form</field>
+        <field name="model">pos.order.tags</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="tag"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hms_order_tags_action" model="ir.actions.act_window">
+        <field name="name">Order Tags</field>
+        <field name="res_model">pos.order.tags</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_order_tags_item"
+              name="Order Tags"
+              parent="point_of_sale.menu_point_config_product"
+              action="view_hms_order_tags_action"
+    />
+</odoo>
